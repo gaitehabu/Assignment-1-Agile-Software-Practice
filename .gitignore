@@ -1,0 +1,8 @@
+/node_modules
+/**/.DS_S*
+.DS_S*
+*.log
+/.nyc_output
+package-lock.json
+/**/.DS_Store*
+*DS_Store*

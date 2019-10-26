@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "5db37eaa3ed61c1b15bb876b",
+    "name": "Francis",
+    "password": "123456789",
+    "sex": "male",
+    "personal_lnfo": "Hello"
+  },
+  {
+    "_id": "5db37ef33ed61c1b15bb876c",
+    "name": "Meng",
+    "password": "qazwsx123",
+    "sex": "male",
+    "personal_lnfo": "Hello"
+  },
+  {
+    "_id": "5db37f0b3ed61c1b15bb876d",
+    "name": "Qi",
+    "password": "qwer123",
+    "sex": "male",
+    "personal_lnfo": "Hello"
+  },
+  {
+    "_id": "5db37f0e3ed61c1b15bb876e",
+    "name": "Jack",
+    "password": "111111",
+    "sex": "male",
+    "personal_lnfo": "I Like eating"
+  },
+  {
+    "_id": "5db49b28082bb36353954a82",
+    "name": "John",
+    "password": "yilin",
+    "sex": "female",
+    "personal_lnfo": "Hello",
+    "__v": 0
+  },
+  {
+    "_id": "5db4b7ee8c07176be7700ce2",
+    "name": "John",
+    "password": "yilin",
+    "sex": "female",
+    "personal_lnfo": "Hello",
+    "__v": 0
+  }
+]

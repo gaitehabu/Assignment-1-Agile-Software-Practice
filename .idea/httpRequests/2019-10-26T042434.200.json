@@ -1,0 +1,22 @@
+{
+  "message": "Edit Recipes Successful!!",
+  "data": {
+    "content": {
+      "material": [
+        "noodles",
+        "sauce"
+      ],
+      "step": [
+        "boiling",
+        "Making sauce"
+      ]
+    },
+    "like": 0,
+    "_id": "5db45f4dcb9d834ec499d16d",
+    "date": "2019-10-26T14:59:25.744Z",
+    "name": "Noodles",
+    "username": "Jackson",
+    "__v": 1,
+    "comment": []
+  }
+}
