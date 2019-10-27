@@ -1,0 +1,30 @@
+{
+  "message": "Edit Recipes Successful!!",
+  "data": {
+    "content": {
+      "material": [
+        "meat",
+        "bread"
+      ],
+      "step": [
+        "Cuting...",
+        "Then...",
+        "Finally..."
+      ]
+    },
+    "like": 3,
+    "_id": "5db5bafa7db5930ff3ba7324",
+    "date": "2019-10-27T15:42:50.974Z",
+    "comment": [
+      {
+        "_id": "5db5bafa7db5930ff3ba7325",
+        "username": "Yan",
+        "text": "So tasty!",
+        "date": "2015-02-05T00:00:00.000Z"
+      }
+    ],
+    "name": "Buger",
+    "username": "John",
+    "__v": 0
+  }
+}

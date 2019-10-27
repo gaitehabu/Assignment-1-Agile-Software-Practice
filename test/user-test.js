@@ -86,7 +86,7 @@ describe('Users: models', function () {
                 });
         });
         after(() => {
-            request(server)
+            return request(server)
                 .get(`/users/name/${user.name}`)
                 .set("Accept", "application/json")
                 .expect("Content-Type", /json/)

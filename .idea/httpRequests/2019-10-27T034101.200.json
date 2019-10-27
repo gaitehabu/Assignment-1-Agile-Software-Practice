@@ -1,0 +1,26 @@
+{
+  "message": "User Added Successfully!",
+  "data": {
+    "content": {
+      "material": [],
+      "step": [
+        "Making...",
+        "..."
+      ]
+    },
+    "like": 0,
+    "_id": "5db5ba8d7db5930ff3ba7322",
+    "date": "2019-10-27T15:41:01.169Z",
+    "comment": [
+      {
+        "_id": "5db5ba8d7db5930ff3ba7323",
+        "username": "Yan",
+        "text": "So tasty!",
+        "date": "2015-02-05T00:00:00.000Z"
+      }
+    ],
+    "name": "Dumpling",
+    "username": "John",
+    "__v": 0
+  }
+}

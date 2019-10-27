@@ -103,9 +103,12 @@ router.fuzzySearch = (req, res) => {
     recipes.find( {name:{$regex:reg}}, function (err, recipe) {
         if (err)
             res.json({message: 'Search NOT Successfully', errorMessage: err});
-        else
-            res.send(JSON.stringify(recipe,null,5));
-
+        else {
+            if (recipe.length == 0)
+                res.send("Bad search!!");
+            else
+                res.send(JSON.stringify(recipe,null,5));
+        }
     })
 }
 
@@ -222,9 +225,9 @@ router.deleteRecipeComment = (req, res) => {
                     recipe.comment.splice(index, 1);
                     recipe.save(function (err) {
                         if (err)
-                            res.json({message: 'Comment NOT Added!', errorMessage: err});
+                            res.json({message: 'Comment NOT Delete!', errorMessage: err});
                         else
-                            res.json({message: 'Comment Added Successfully!', data: recipe.comment });
+                            res.json({message: 'Comment Delete Successfully!', data: recipe.comment });
                     });
                 }
 

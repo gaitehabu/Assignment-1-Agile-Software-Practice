@@ -1,0 +1,23 @@
+{
+  "message": "Comment Added Successfully!",
+  "data": [
+    {
+      "_id": "5db4cd6920a9f87338d01c00",
+      "username": "Meng",
+      "text": "Looks good and tasty.",
+      "date": "2018-11-14T00:00:00.000Z"
+    },
+    {
+      "_id": "5db4cd6920a9f87338d01bff",
+      "username": "Qi",
+      "text": "Good!",
+      "date": "2018-12-28T00:00:00.000Z"
+    },
+    {
+      "_id": "5db5bb2d7db5930ff3ba7326",
+      "username": "Saruis",
+      "text": "bad bad bad!",
+      "date": "2019-10-27T15:43:41.495Z"
+    }
+  ]
+}

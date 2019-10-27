@@ -40,6 +40,7 @@ app.get('/recipes/name/:name', recipes.findOneByName);
 app.get('/recipes/username/:username', recipes.findOneByUserName);
 app.get('/recipes/search/:name', recipes.fuzzySearch)
 app.get('/recipes/:id/comment', recipes.findComment)
+
 app.post('/recipes', recipes.addRecipe);
 app.post('/recipes/:id/addComment', recipes.addComment);
 app.put('/recipes/:id/upLike', recipes.incrementUpLike);
