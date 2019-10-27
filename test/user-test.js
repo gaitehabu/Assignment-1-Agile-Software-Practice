@@ -6,11 +6,13 @@ const mongoose = require("mongoose");
 const User = require('../models/users')
 
 
-const mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/test?retryWrites=true&w=majority';
+const mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/cookingweb?retryWrites=true&w=majority';
 let server;
 let db;
 
-mongoose.connect(mongodbUri);
+let testID;
+
+mongoose.connect(mongodbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 server = require("../bin/www");
 
 describe('Users: models', function () {
@@ -42,45 +44,50 @@ describe('Users: models', function () {
 
     describe('GET /users/name/:name', () => {
         describe('when the name is valid', () => {
-            it('should return the matching user', function () {
-                return request(server)
-                    .get('/users/name/Meng')
+            it('should return the matching user', done => {
+                request(server)
+                    .get('/users/name/Francis')
                     .set("Accept", "application/json")
                     .expect("Content-Type", /json/)
                     .expect(200)
-                    .then(res => {
-                        expect(res.body).to.have.property("name", "Meng");
-                        expect(res.body).to.have.property("password", "changedPassword");
+                    .end((err, res) => {
+                        expect(res.body).to.have.property("name", "Francis");
+                        expect(res.body).to.have.property("password", "123456789");
+                        done(err);
                     });
             });
         });
         describe('when the name is invalid', () => {
-            it('should return the NOT Found message', function () {
-                return request(server)
+            it('should return the NOT Found message', done => {
+                request(server)
                     .get('/users/name/9999')
                     .expect(200)
-                    .expect({message: "User NOT Found By Name!!"});
+                    .end((err, res) => {
+                        expect({message: "User NOT Found By Name!!"});
+                        done(err);
+                    })
             });
         });
     });
 
     describe('POST /user', () => {
+        const user = {
+            name: 'Arli',
+            password: 'fox111'
+        };
         it('should return confirmation message and add a user', function () {
-            const user = {
-                name: 'Arli',
-                password: 'fox111'
-            };
             return request(server)
                 .post('/users')
                 .send(user)
                 .expect(200)
                 .then(res => {
                     expect(res.body).to.have.property("message", "User Added Successfully!");
+                    testID = res.body.data._id;
                 });
         });
         after(() => {
-            return request(server)
-                .get('/users/name/Arli')
+            request(server)
+                .get(`/users/name/${user.name}`)
                 .set("Accept", "application/json")
                 .expect("Content-Type", /json/)
                 .expect(200)
@@ -92,7 +99,7 @@ describe('Users: models', function () {
     });
 
     describe('PUT /user/:id/password', () => {
-        describe('when the name is valid', () => {
+        describe('when the id is valid', () => {
             it('should return the message and user password changed', function () {
                 const user = {
                     password: 'changedPassword'
@@ -106,7 +113,7 @@ describe('Users: models', function () {
                     });
             });
         });
-        describe('when the name is invalid', () => {
+        describe('when the id is invalid', () => {
             it('should return the NOT Found message', function () {
                 return request(server)
                     .put('/users/qqqq/password')
@@ -117,11 +124,10 @@ describe('Users: models', function () {
 
     describe("DELETE /users/:id", () => {
         describe("when the id is valid", () => {
-            let lastOne = User[User.length - 1]
 
             it("should return a message and delete a user", () => {
                 return request(server)
-                    .delete("/users/5db50086ebb3e2862bb098fc")
+                    .delete(`/users/${testID}`)
                     .expect(200)
                     .then(resp => {
                         expect(resp.body).to.include({ message: "User deleted Successfully!" });
@@ -129,7 +135,7 @@ describe('Users: models', function () {
             });
             after(() => {
                 return request(server)
-                    .get("/users/5db50086ebb3e2862bb098fc")
+                    .get(`/users/${testID}`)
                     .set("Accept", "application/json")
                     .expect("Content-Type", /json/)
                     .expect(200)

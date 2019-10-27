@@ -1,3 +1,14 @@
+POST http://localhost:3000/users/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000000, "name": "Francis", "password": "123456789", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T010700.200.json
+
+###
+
 GET http://localhost:3000/users/name/Francis
 Accept: */*
 Cache-Control: no-cache
@@ -520,17 +531,6 @@ Content-Type: application/json
 {"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
 
 <> 2019-10-26T044511.200.html
-
-###
-
-DELETE http://localhost:3000/recipes/5db43264cd66d3422259dc061/comment/5db46215b987144f93d5aa42
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T044505.200.json
 
 ###
 
