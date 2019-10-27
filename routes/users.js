@@ -41,7 +41,7 @@ router.findOneByID = (req, res) => {
       res.json({ message: 'User NOT Found By ID!!', errorMessage: err});
     else
       if (user.length == 0)
-        res.send("User NOT Found By ID!!");
+        res.send({message: "User NOT Found By ID!!"});
       else
         res.send(JSON.stringify(user,null,5));
   });
@@ -56,12 +56,12 @@ router.findOneByName = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   users.findOne({ "name" : req.params.name },function(err, user) {
     if (err)
-      res.json({ message: 'User NOT Found By Name!!', errorMessage: err});
+      res.json({ message: "User NOT Found By Name!!", errorMessage: err});
     else
       if (user != null)
         res.send(JSON.stringify(user,null,5));
       else
-        res.send('User NOT Found By Name!!');
+        res.send({ message: "User NOT Found By Name!!"});
   });
 
 }
@@ -87,7 +87,7 @@ router.addUser = (req, res) => {
 router.changePassword = (req, res) => {
   users.findById(req.params.id, function (err, user) {
     if (err)
-      res.json({message: 'User NOT Found', errorMessage: err});
+      res.json({message: 'User NOT Found'});
     else {
       if (user == null)
         res.send("User NOT Found!");

@@ -1,0 +1,11 @@
+{
+  "message": "User Added Successfully!",
+  "data": {
+    "_id": "5db4f87b722f7382f2394ccf",
+    "name": "Meng",
+    "password": "qazwsx123",
+    "sex": "male",
+    "personal_lnfo": "Hello",
+    "__v": 0
+  }
+}

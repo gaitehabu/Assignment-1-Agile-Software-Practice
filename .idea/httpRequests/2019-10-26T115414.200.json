@@ -1,0 +1,25 @@
+{
+  "message": "User Added Successfully!",
+  "data": {
+    "content": {
+      "material": [],
+      "step": [
+        "Making...",
+        "..."
+      ]
+    },
+    "like": 0,
+    "_id": "5db4ce9620a9f87338d01c03",
+    "date": "2019-10-26T22:54:14.852Z",
+    "comment": [
+      {
+        "_id": "5db4ce9620a9f87338d01c04",
+        "username": "Meng",
+        "text": "Delicious!"
+      }
+    ],
+    "name": "Curry",
+    "username": "Qi",
+    "__v": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "message": "User Added Successfully!",
+  "data": {
+    "content": {
+      "material": [
+        "potato"
+      ],
+      "step": []
+    },
+    "like": 0,
+    "_id": "5db4ceaf20a9f87338d01c06",
+    "date": "2019-10-26T22:54:39.364Z",
+    "comment": [],
+    "name": "Chips",
+    "username": "Jack",
+    "__v": 0
+  }
+}

@@ -1,3 +1,323 @@
+GET http://localhost:3000/users/name/Francis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000001, "name": "Meng", "password": "qazwsx123", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T022333.200.json
+
+###
+
+GET http://localhost:3000/users/name/Francis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000001, "name": "Meng", "password": "qazwsx123", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T020201.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000001, "name": "Meng", "password": "qazwsx123", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T015259.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000000, "name": "Francis", "password": "123456789", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T015136.200.json
+
+###
+
+GET http://localhost:3000/users/name/Francis1
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T011458.200.json
+
+###
+
+GET http://localhost:3000/users/name/Francis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+###
+
+GET http://localhost:3000/users/name/Francis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+###
+
+GET http://localhost:3000/users/name/Francis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+###
+
+GET http://localhost:3000/users/name/baidn
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+###
+
+GET http://localhost:3000/users/name/baidn
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T120126.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000002, "name": "Qi", "password": "qwer123", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T120114.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000001, "name": "Meng", "password": "qazwsx123", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T120048.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000000, "name": "Francis", "password": "123456789", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-27T120031.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 0, "name": "John", "password": "yilin", "sex": "female", "personal_lnfo": "Hello"}
+
+<> 2019-10-26T115947.200.json
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000004, "name": "Chips", "username": "Jack",     "content": {"material": ["potato"], "step": []},     "comment": [],     "like": 0}
+
+<> 2019-10-26T115439.200.json
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000003, "name": "Chips", "username": "Meng",     "content": {"material": ["potato"], "step": []},     "comment": [],     "like": 1}
+
+<> 2019-10-26T115429.200.json
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Curry", "username": "Qi",     "content": {"material": [], "step": ["Making...", "..."]},     "comment": [{"id": 200000200, "username": "Meng", "text": "Delicious!"}],     "like": 3}
+
+<> 2019-10-26T115414.200.json
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Curry", "username": "Qi",     "content": {"material": [], "step": ["Making...", "..."]},     "comment": [{"id": 200000200, "username": "Meng", "text": 'Delicious!'}],     "like": 3}
+
+<> 2019-10-26T115346.400.html
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Curry", "username": "Qi",     "content": {"material": [], "step": ["Making...", "..."]},     "comment": [{"id": 200000200, "username": 'Meng', "text": 'Delicious!'}],     "like": 3}
+
+<> 2019-10-26T115314.400.html
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000001, "name": "Pizza", "username": "Francis",     "content": {"material": [], "step": []},     "comment": [{"id": 200000100, "username": "Qi", "text": "It is so bad!"}],     "like": 2}
+
+<> 2019-10-26T115259.200.json
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.11.14"},         		{"id": 1000002, "username": "Qi", "text": "Good!","date": "2018.12.28"}],  "like": 0}
+
+<> 2019-10-26T114913.200.json
+
+###
+
+POST http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.”,"date": "2018.11.14"},         		{"id": 1000002, "username": "Qi", "text": “Good!","date": "2018.12.28"}],  "like": 0}
+
+<> 2019-10-26T114721.400.html
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hello"}
+
+<> 2019-10-26T114513.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000002, "name": "Qi", "password": "qwer123", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-26T114500.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000002, "name": "Qi", "password": 'qwer123', "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-26T114433.400.html
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000001, "name": "Meng", "password": "qazwsx123", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-26T114418.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000001, "name": "Meng", "password": "qazwsx123", "sex": "male", "personal_lnfo": "Hello"},
+
+<> 2019-10-26T114350.400.html
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000000, "name": "Francis","password": "123456789", "sex": "male", "personal_lnfo": "Hello"}
+
+<> 2019-10-26T114136.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{id: 1000000, name: 'Francis', password: '123456789', sex: 'male', personal_lnfo: 'Hello'}
+
+<> 2019-10-26T114010.400.html
+
+###
+
 GET http://localhost:3000/users/5db37eaa3ed61c1b15bb876b1
 Accept: */*
 Cache-Control: no-cache
@@ -211,332 +531,6 @@ Content-Type: application/json
 {"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
 
 <> 2019-10-26T044505.200.json
-
-###
-
-DELETE http://localhost:3000/recipes/5db43264cd66d3422259dc06/comment/5db46215b987144f93d5aa42
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T044459.200.html
-
-###
-
-DELETE http://localhost:3000/recipes/5db43264cd66d3422259dc06/comment/5db46215b987144f93d5aa43
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T044455.200.html
-
-###
-
-DELETE http://localhost:3000/recipes/5db43264cd66d3422259dc06/comment/5db46215b987144f93d5aa4211
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T044439.200.html
-
-###
-
-DELETE http://localhost:3000/recipes/5db43264cd66d3422259dc06/comment/5db46215b987144f93d5aa42
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T044408.200.json
-
-###
-
-DELETE http://localhost:3000/recipes/5db45f4dcb9d834ec499d16d/
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T042702.200.json
-
-###
-
-DELETE http://localhost:3000/recipes/5db45f4dcb9d834ec499d16d1/
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T042658.200.json
-
-###
-
-DELETE http://localhost:3000/recipes/5db45f4dcb9d834ec499d162/
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T042636.200.html
-
-###
-
-PUT http://localhost:3000/recipes/5db45f4dcb9d834ec499d162/editRecipes
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T042529.200.html
-
-###
-
-PUT http://localhost:3000/recipes/5db45f4dcb9d834ec499d16d1/editRecipes
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T042524.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db45f4dcb9d834ec499d16d/editRecipes
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 2000000, "name": "Noodles", "username": "Francis",     "content": {"material": ["noodles", "sauce"], "step": ["boiling", "Making sauce"]},     "comment": [{"id": 1000001, "username": "Meng", "text": "Looks good and tasty.","date": "2018.12.28"},         {"id": 1000002, "username": "Qi", "text": "Good!"}],         "like": 0}
-
-<> 2019-10-26T042434.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc061/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041820.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc05/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041816.200.html
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc05/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041815.200.html
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc05/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041813.200.html
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041808.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc05/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041718.200.html
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc05/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc061/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041638.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041631.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041630.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041629.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041611.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041609.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLike
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041557.200.json
-
-###
-
-PUT http://localhost:3000/recipes/5db43264cd66d3422259dc06/upLikw
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041550.404.html
-
-###
-
-POST http://localhost:3000/recipes/5db43264cd66d3422259dc05/addComment
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041521.200.html
-
-###
-
-POST http://localhost:3000/recipes/5db43264cd66d3422259dc061/addComment
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041513.200.json
-
-###
-
-POST http://localhost:3000/recipes/5db43264cd66d3422259dc06/addComment
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Oeen", "text": "XD!"}
-
-<> 2019-10-26T041232.200.json
-
-###
-
-POST http://localhost:3000/recipes/5db43264cd66d3422259dc06/addComment
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000002, "username": "Jackson", "text": "Very Good!"}
-
-<> 2019-10-26T041117.200.json
 
 ###
 
