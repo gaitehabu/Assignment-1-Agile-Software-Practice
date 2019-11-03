@@ -272,5 +272,38 @@ describe('Recipes: models', function () {
         });
     });
 
+    describe('POST /recipes', () => {
+        const recipe = {
+            name: "Dumpling", username: "John",
+            content: {material: [], step: ["Making...", "..."]},
+            comment: [{"id": 200000200, username: "Yan", text: "So tasty!", date: "2015.2.5"}],
+            like: 3
+        };
+        it('should return confirmation message and add a recipe', function () {
+            return request(server)
+                .post('/recipes')
+                .send(recipe)
+                .expect(200)
+                .then(res => {
+                    expect(res.body).to.have.property("message", "Recipe Added Successfully!");
+                    testID = res.body.data._id;
+                });
+        });
+        after(() => {
+            return request(server)
+                .get(`/recipes/${testID}`)
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect(200)
+                .then(res => {
+                    expect(res.body).to.have.property("name", "Dumpling");
+                    expect(res.body).to.have.property("username", "John");
+                    expect(res.body).to.have.property("like", 0);
+                });
+        });
+    });
+
+    
+
 });
 

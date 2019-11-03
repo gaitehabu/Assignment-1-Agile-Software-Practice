@@ -123,9 +123,9 @@ router.addRecipe = (req, res) => {
 
     recipe.save(function (err) {
         if (err)
-            res.json({message: 'User NOT Added!', errorMessage: err});
+            res.json({message: 'Recipe NOT Added!', errorMessage: err});
         else
-            res.json({message: 'User Added Successfully!', data: recipe});
+            res.json({message: 'Recipe Added Successfully!', data: recipe});
     });
 }
 
