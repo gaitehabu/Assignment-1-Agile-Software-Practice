@@ -6,10 +6,9 @@ const mongoose = require("mongoose");
 const Recipe = require('../models/recipes')
 
 const mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/cookingweb?retryWrites=true&w=majority';
-let server;
-let db;
+let server, db, collection;
 
-let testID;
+let validID, testID;
 
 describe('Recipes: models', function () {
     before(async () => {
@@ -17,6 +16,7 @@ describe('Recipes: models', function () {
             mongoose.connect(mongodbUri, { useNewUrlParser: true, useUnifiedTopology: true });
             server = require("../bin/www");
             db = mongoose.connection;
+            collection = db.collection("recipes");
         } catch (e) {
             console.log(e);
         }
@@ -31,6 +31,46 @@ describe('Recipes: models', function () {
         }
     });
 
+    before(async () => {
+        try {
+            await collection.deleteMany({});
+            await collection.insertOne({
+                name: 'Noodles', username: 'Francis',
+                content: {material: ['noodles', 'sauce'], step: ['boiling', 'Making sauce']},
+                comment: [{username: 'Meng', text: 'Looks good and tasty.', date: "2018.1.2"},
+                    {username: 'Qi', text: 'Good!', date: "2018.12.28"}],
+                like: 0
+            });
+            await collection.insertOne({
+                name: 'Pizza', username: 'Francis',
+                content: {material: [], step: []},
+                comment: [{id: 200000100, username: 'Qi', text: 'It is so bad!', date: "2018.5.7"}],
+                like: 2
+            });
+            await collection.insertOne({
+                name: 'Curry', username: 'Qi',
+                content: {material: [], step: ['Making...', '...']},
+                comment: [{id: 200000200, username: 'Meng', text: 'Delicious!', date: "2018.12.28"}],
+                like: 3
+            });
+            await collection.insertOne({
+                name: 'Chips', username: 'Meng',
+                content: {material: ['potato'], step: []},
+                comment: [],
+                like: 1
+            });
+            await collection.insertOne({
+                name: 'Chips', username: 'Jack',
+                content: {material: ['potato'], step: []},
+                comment: [],
+                like: 0
+            });
+            const recipe = await collection.findOne({ name: "Noodles" });
+            validID = recipe._id;
+        } catch (error) {
+            console.log(error);
+        }
+    });
     describe('GET /recipes', () => {
         it('should return all recipes', done => {
             request(server)
@@ -80,7 +120,7 @@ describe('Recipes: models', function () {
         describe('when the id is valid', () => {
             it('should return the matching recipe', done => {
                 request(server)
-                    .get('/recipes/5db4cd6920a9f87338d01bfe')
+                    .get(`/recipes/${validID}`)
                     .set("Accept", "application/json")
                     .expect("Content-Type", /json/)
                     .expect(200)
@@ -190,7 +230,7 @@ describe('Recipes: models', function () {
         describe('when the id is valid', () => {
             it('should return the matching comment in recipe', done => {
                 request(server)
-                    .get('/recipes/5db4cd6920a9f87338d01bfe/comment')
+                    .get(`/recipes/${validID}/comment`)
                     .set("Accept", "application/json")
                     .expect("Content-Type", /json/)
                     .expect(200)
@@ -395,7 +435,7 @@ describe('Recipes: models', function () {
         };
         it('should return confirmation message and add a comment in recipe', function () {
             return request(server)
-                .post('/recipes/5db4cd6920a9f87338d01bfe/addComment')
+                .post(`/recipes/${validID}/addComment`)
                 .send(comment)
                 .expect(200)
                 .then(res => {
@@ -406,7 +446,7 @@ describe('Recipes: models', function () {
         after(() => {
             return request(server)
                 //.get(`/recipes/${testID}`)
-                .get('/recipes/5db4cd6920a9f87338d01bfe/comment')
+                .get(`/recipes/${validID}/comment`)
                 .set("Accept", "application/json")
                 .expect("Content-Type", /json/)
                 .expect(200)
@@ -427,7 +467,7 @@ describe('Recipes: models', function () {
         describe("when the id is valid", () => {
             it("should return a message and delete a comment in recipe", () => {
                 return request(server)
-                    .delete(`/recipes/5db4cd6920a9f87338d01bfe/comment/${testID}`)
+                    .delete(`/recipes/${validID}/comment/${testID}`)
                     .expect(200)
                     .then(resp => {
                         expect(resp.body).to.include({ message: "Comment Delete Successfully!" });
@@ -435,7 +475,7 @@ describe('Recipes: models', function () {
             });
             after(() => {
                 return request(server)
-                    .get(`/recipes/5db4cd6920a9f87338d01bfe`)
+                    .get(`/recipes/${validID}`)
                     .set("Accept", "application/json")
                     .expect("Content-Type", /json/)
                     .expect(200)
@@ -459,7 +499,7 @@ describe('Recipes: models', function () {
         describe("when the cid is invalid", () => {
             it("should return a message for Comment NOT DELETED", () => {
                 return request(server)
-                    .delete(`/recipes/5db4cd6920a9f87338d01bfe/comment/1231231231321`)
+                    .delete(`/recipes/${validID}/comment/1231231231321`)
                     .then(resp => {
                         expect(resp.body).to.include({ message: "Comment NOT Found! - Recipe Comment Delete NOT Successful!" });
                     });
