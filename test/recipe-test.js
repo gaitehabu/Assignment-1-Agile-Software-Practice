@@ -76,6 +76,75 @@ describe('Recipes: models', function () {
         });
     });
 
+    describe('GET /recipes/:id', () => {
+        describe('when the id is valid', () => {
+            it('should return the matching recipe', done => {
+                request(server)
+                    .get('/recipes/5db4cd6920a9f87338d01bfe')
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body).to.have.property("name", "Noodles");
+                        expect(res.body).to.have.property("username", "Francis");
+                        done(err);
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', done => {
+                request(server)
+                    .get('/recipes/12333')
+                    .expect(200)
+                    .end((err, res) => {
+                        expect({message: "Recipe NOT Found By ID!!"});
+                        done(err);
+                    })
+            });
+        });
+    });
+
+    describe('GET /recipes/name/:name', () => {
+        describe('when the name is correct', () => {
+            it('should return the matching recipe', done => {
+                request(server)
+                    .get('/recipes/name/Chips')
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.length).to.equal(2);
+                        let result = _.map(res.body, recipe => {
+                            return {
+                                name: recipe.name,
+                                username: recipe.username
+                            };
+                        });
+                        expect(result).to.deep.include({
+                            name: "Chips",
+                            username: "Meng"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Chips",
+                            username: "Jack"
+                        });
+                        done(err);
+                    });
+            });
+        });
+        describe('when the name is wrong', () => {
+            it('should return the NOT Found message', done => {
+                request(server)
+                    .get('/recipes/name/iceCream')
+                    .expect(200)
+                    .end((err, res) => {
+                        expect({message: "Recipe NOT Found By name!!"});
+                        done(err);
+                    })
+            });
+        });
+    });
+
 
 });
 

@@ -35,12 +35,12 @@ function getByValue(array, id) {
 
 router.findOneByID = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    recipes.find({ "_id" : req.params.id },function(err, recipe) {
+    recipes.findOne({ "_id" : req.params.id },function(err, recipe) {
         if (err)
-            res.json({ message: 'Recipe NOT Found By ID!!', errorMessage: err});
+            res.json({message: 'Recipe NOT Found By ID!!', errorMessage: err});
         else
-        if (recipe.length == 0)
-            res.send("Recipe NOT Found By ID!!");
+        if (recipe == null)
+            res.send({message: "Recipe NOT Found By ID!!"});
         else
             res.send(JSON.stringify(recipe,null,5));
     });
@@ -58,7 +58,7 @@ router.findOneByName = (req, res) => {
             res.json({ message: 'Recipe NOT Found By Name!!', errorMessage: err});
         else
         if (recipe.length == 0)
-            res.send("Recipe NOT Found By Name!!");
+            res.send({message: "Recipe NOT Found By Name!!"});
         else
             res.send(JSON.stringify(recipe,null,5));
     });
