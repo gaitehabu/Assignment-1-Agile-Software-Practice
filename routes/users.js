@@ -36,11 +36,11 @@ function getByValue(array, id) {
 
 router.findOneByID = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  users.find({ "_id" : req.params.id },function(err, user) {
+  users.findOne({ "_id" : req.params.id },function(err, user) {
     if (err)
       res.json({ message: 'User NOT Found By ID!!', errorMessage: err});
     else
-      if (user.length == 0)
+      if (user == null)
         res.send({message: "User NOT Found By ID!!"});
       else
         res.send(JSON.stringify(user,null,5));
