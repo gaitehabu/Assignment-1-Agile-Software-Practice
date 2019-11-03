@@ -227,5 +227,50 @@ describe('Recipes: models', function () {
         });
     });
 
+    describe('GET /recipes/search/:name', () => {
+        describe('when the name is correct', () => {
+            it('should return the matching recipe', done => {
+                request(server)
+                    .get('/recipes/search/i')
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.length).to.equal(3);
+                        let result = _.map(res.body, recipe => {
+                            return {
+                                name: recipe.name,
+                                username: recipe.username
+                            };
+                        });
+                        expect(result).to.deep.include({
+                            name: "Chips",
+                            username: "Meng"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Chips",
+                            username: "Jack"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Pizza",
+                            username: "Francis"
+                        });
+                        done(err);
+                    });
+            });
+        });
+        describe('when the name is wrong', () => {
+            it('should return the NOT Found message', done => {
+                request(server)
+                    .get('/recipes/search/ooo')
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body).to.have.property("message", "Bad search!!");
+                        done(err);
+                    })
+            });
+        });
+    });
+
 });
 

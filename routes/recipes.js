@@ -97,7 +97,7 @@ router.findComment = (req, res) => {
 }
 
 router.fuzzySearch = (req, res) => {
-
+    res.setHeader('Content-Type', 'application/json');
     const keyword = req.params.name;
     const reg = new RegExp(keyword,'i');
     recipes.find( {name:{$regex:reg}}, function (err, recipe) {
@@ -105,7 +105,7 @@ router.fuzzySearch = (req, res) => {
             res.json({message: 'Search NOT Successfully', errorMessage: err});
         else {
             if (recipe.length == 0)
-                res.send("Bad search!!");
+                res.send({message: "Bad search!!"});
             else
                 res.send(JSON.stringify(recipe,null,5));
         }
