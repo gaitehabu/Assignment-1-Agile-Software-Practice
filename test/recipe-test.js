@@ -355,5 +355,40 @@ describe('Recipes: models', function () {
         });
     });
 
+    describe("DELETE /recipes/:id", () => {
+        describe("when the id is valid", () => {
+
+            it("should return a message and delete a recipe", () => {
+                return request(server)
+                    .delete(`/recipes/${testID}`)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "Recipe deleted Successfully!" });
+                    });
+            });
+            after(() => {
+                return request(server)
+                    .get(`/recipes/${testID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.data).to.equal(undefined);
+                    });
+            });
+        });
+        describe("when the id is invalid", () => {
+            it("should return a message for Recipe NOT DELETED", () => {
+                return request(server)
+                    .delete("/recipes/1100001")
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "Recipe NOT Deleted!" });
+                    });
+
+            });
+        });
+    })
+
+
 });
 
