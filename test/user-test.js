@@ -204,4 +204,38 @@ describe('Users: models', function () {
         });
     });
 
+    describe("DELETE /users/:id", () => {
+        describe("when the id is valid", () => {
+
+            it("should return a message and delete a user", () => {
+                return request(server)
+                    .delete(`/users/${testID}`)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "User deleted Successfully!" });
+                    });
+            });
+            after(() => {
+                return request(server)
+                    .get(`/users/${testID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.data).to.equal(undefined);
+                    });
+            });
+        });
+        describe("when the id is invalid", () => {
+            it("should return a message for User NOT DELETED", () => {
+                return request(server)
+                    .delete("/users/1100001")
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "User NOT Deleted!" });
+                    });
+
+            });
+        });
+    })
+    
 });
