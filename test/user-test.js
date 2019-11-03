@@ -125,5 +125,32 @@ describe('Users: models', function () {
             });
         });
     });
-    
+
+    describe('POST /user', () => {
+        const user = {
+            name: 'Zoe',
+            password: 'starstar'
+        };
+        it('should return confirmation message and add a user', function () {
+            return request(server)
+                .post('/users')
+                .send(user)
+                .expect(200)
+                .then(res => {
+                    expect(res.body).to.have.property("message", "User Added Successfully!");
+                    testID = res.body.data._id;
+                });
+        });
+        after(() => {
+            return request(server)
+                .get(`/users/name/${user.name}`)
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect(200)
+                .then(res => {
+                    expect(res.body).to.have.property("name", "Zoe");
+                    expect(res.body).to.have.property("password", "starstar");
+                });
+        });
+    });
 });
