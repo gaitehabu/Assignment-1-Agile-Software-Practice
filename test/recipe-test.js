@@ -303,7 +303,57 @@ describe('Recipes: models', function () {
         });
     });
 
-    
+    describe('PUT /recipes/:id/upLike', () => {
+        describe('when the id is valid', () => {
+            it('should return the message and recipe like added by 1', function () {
+                return request(server)
+                    .put(`/recipes/${testID}/upLike`)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.data).to.have.property("like", 1);
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', function () {
+                return request(server)
+                    .put('/recipes/qqqq/upLike')
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "Recipe NOT Found")
+                    })
+                //expect({message: "Recipe NOT Found"});
+            });
+        });
+    });
+
+    describe('PUT /recipes/:id/editRecipes', () => {
+        describe('when the id is valid', () => {
+            it('should return the message and recipe information changed', function () {
+                const user = {
+                    name: "Burger",
+                    content: {material: ["meat", "bread"], step: ["Cutting...", "Then...", "Finally..."]}
+                };
+                return request(server)
+                    .put(`/recipes/${testID}/editRecipes`)
+                    .send(user)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.data).to.have.property("name", "Burger");
+                        expect(res.body.data.content.material).to.include("meat");
+                        expect(res.body.data.content.material).to.include("bread");
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', function () {
+                return request(server)
+                    .put('/recipes/2131231/editRecipes')
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "Recipe NOT Found")
+                    })
+            });
+        });
+    });
 
 });
 
