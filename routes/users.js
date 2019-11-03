@@ -107,7 +107,7 @@ router.changePassword = (req, res) => {
 router.editInformation = (req, res) => {
   users.findById(req.params.id, function (err, user) {
     if (err)
-      res.json({message: 'User NOT Found', errorMessage: err});
+      res.json({message: 'User NOT Found'/*errorMessage: err*/});
     else {
       if (user == null)
         res.send("User NOT Found!!");

@@ -153,4 +153,55 @@ describe('Users: models', function () {
                 });
         });
     });
+
+    describe('PUT /user/:id/password', () => {
+        describe('when the id is valid', () => {
+            it('should return the message and user password changed', function () {
+                const user = {
+                    password: 'changedPassword'
+                };
+                return request(server)
+                    .put(`/users/${testID}/password`)
+                    .send(user)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.data).to.have.property("password", "changedPassword");
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', function () {
+                return request(server)
+                    .put('/users/qqqq/password')
+                    .expect({message: "User NOT Found"});
+            });
+        });
+    });
+
+    describe('PUT /user/:id/editInformation', () => {
+        describe('when the id is valid', () => {
+            it('should return the message and user information changed', function () {
+                const user = {
+                    sex: 'male',
+                    personal_lnfo: "I like drinking"
+                };
+                return request(server)
+                    .put(`/users/${testID}/editInformation`)
+                    .send(user)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.data).to.have.property("sex", "male");
+                        expect(res.body.data).to.have.property("personal_lnfo", "I like drinking");
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', function () {
+                return request(server)
+                    .put('/users/qqqq/editInformation')
+                    .expect({message: "User NOT Found"});
+            });
+        });
+    });
+
 });
