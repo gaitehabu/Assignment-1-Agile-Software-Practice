@@ -1,0 +1,550 @@
+DELETE http://localhost:3000/recipes/5d0a9f87338d01bfe/comment/5db5bcffa13dc710db090a98
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T035558.200.json
+
+###
+
+DELETE http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment/5db5bcffa0a98
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T035546.200.html
+
+###
+
+DELETE http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment/5db5bcffa13dc710db090a98
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T035516.200.json
+
+###
+
+DELETE http://localhost:3000/recipes/fjdldkjasdjas
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T035446.200.json
+
+###
+
+POST http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/addComment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T035127.200.json
+
+###
+
+DELETE http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment/5db5bb2d7db5930ff3ba7326
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Buger", "username": "John",     "content": {"material": ["meat", "bread"], "step": ["Cuting...", "Then...", "Finally..."]},     "comment": [{"id": 200000200, "username": "Yan", "text": "So tasty!", "date": "2015.2.5"}],     "like": 3}
+
+<> 2019-10-27T034757.200.json
+
+###
+
+DELETE http://localhost:3000/recipes/5db5bafa7db5930ff3ba7324
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Buger", "username": "John",     "content": {"material": ["meat", "bread"], "step": ["Cuting...", "Then...", "Finally..."]},     "comment": [{"id": 200000200, "username": "Yan", "text": "So tasty!", "date": "2015.2.5"}],     "like": 3}
+
+<> 2019-10-27T034655.200.json
+
+###
+
+PUT http://localhost:3000/recipes/5db5bafa7db5930ff3ba/editRecipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Buger", "username": "John",     "content": {"material": ["meat", "bread"], "step": ["Cuting...", "Then...", "Finally..."]},     "comment": [{"id": 200000200, "username": "Yan", "text": "So tasty!", "date": "2015.2.5"}],     "like": 3}
+
+<> 2019-10-27T034621.200.json
+
+###
+
+PUT http://localhost:3000/recipes/5db5bafa7db5930ff3ba7324/editRecipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Buger", "username": "John",     "content": {"material": ["meat", "bread"], "step": ["Cuting...", "Then...", "Finally..."]},     "comment": [{"id": 200000200, "username": "Yan", "text": "So tasty!", "date": "2015.2.5"}],     "like": 3}
+
+<> 2019-10-27T034555.200.json
+
+###
+
+PUT http://localhost:3000/recipes/5db5bafa7db5324/upLike
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T034512.200.json
+
+###
+
+PUT http://localhost:3000/recipes/5db5bafa7db5930ff3ba7324/upLike
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T034502.200.json
+
+###
+
+PUT http://localhost:3000/recipes/5db5bafa7db5930ff3ba7324/upLike
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T034500.200.json
+
+###
+
+PUT http://localhost:3000/recipes/5db5bafa7db5930ff3ba7324/upLike
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T034454.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T034423.200.json
+
+###
+
+POST http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/addComment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T034341.200.json
+
+###
+
+POST http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 200000200, "username": "Saruis", "text": "bad bad bad!", "date": "2016.6.20"}
+
+<> 2019-10-27T034331.404.html
+
+###
+
+POST http://localhost:3000/recipes/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Dumpling", "username": "John",     "content": {"material": [], "step": ["Making...", "..."]},     "comment": [{"id": 200000200, "username": "Yan", "text": "So tasty!", "date": "2015.2.5"}],     "like": 3}
+
+<> 2019-10-27T034251.200.json
+
+###
+
+DELETE http://localhost:3000/recipes/5db5ba8d7db5930ff3ba7322
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Dumpling", "username": "John",     "content": {"material": [], "step": ["Making...", "..."]},     "comment": [{"id": 200000200, "username": "Yan", "text": "So tasty!", "date": "2015.2.5"}],     "like": 3}
+
+<> 2019-10-27T034203.200.json
+
+###
+
+POST http://localhost:3000/recipes/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 2000002, "name": "Dumpling", "username": "John",     "content": {"material": [], "step": ["Making...", "..."]},     "comment": [{"id": 200000200, "username": "Yan", "text": "So tasty!", "date": "2015.2.5"}],     "like": 3}
+
+<> 2019-10-27T034101.200.json
+
+###
+
+GET http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T033840.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6920a9e/comment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T032000.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031943.200.json
+
+###
+
+GET http://localhost:3000/recipes/search/nnnn
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031919.200.html
+
+###
+
+GET http://localhost:3000/recipes/search/i
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031858.200.html
+
+###
+
+GET http://localhost:3000/recipes/username/Francissss
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031840.200.json
+
+###
+
+GET http://localhost:3000/recipes/username/Francis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031829.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Noodles111
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031816.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Noodles
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031805.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6911
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031746.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031737.200.json
+
+###
+
+GET http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T031712.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6920a9f87338dfe/comment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030516.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030508.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Nood
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030421.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Noodles
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030417.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Meng
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030333.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Fran
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030328.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Francis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030225.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd692d01bfe
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030206.200.json
+
+###
+
+GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030201.200.json
+
+###
+
+GET http://localhost:3000/recipes/search/l
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030130.200.html
+
+###
+
+GET http://localhost:3000/recipes/search/i
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030115.200.html
+
+###
+
+GET http://localhost:3000/recipes/search/qqq
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030110.200.html
+
+###
+
+GET http://localhost:3000/recipes/search/qqq
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T030027.200.html
+
+###
+
+GET http://localhost:3000/recipes/search/qqq
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T025811.200.html
+
+###
+
+GET http://localhost:3000/recipes/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T025626.200.json
+
+###
+
+GET http://localhost:3000/recipes/search/i
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T025608.200.html
+
+###
+
+GET http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T025451.200.json
+
+###
+
+DELETE http://localhost:3000/users/5db5ae58cc9f1d08b4f2d6dc
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T025112.200.json
+
+###
+
+PUT http://localhost:3000/users/5db5108b4f2d6dc/editInformation
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
+
+<> 2019-10-27T025051.200.json
+
+###
+

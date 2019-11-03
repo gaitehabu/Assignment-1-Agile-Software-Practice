@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 
 
 let mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/cookingweb';
-mongoose.connect(mongodbUri, { useNewUrlParser: true });
+mongoose.connect(mongodbUri, { useNewUrlParser: true , useUnifiedTopology: true });
 
 let db = mongoose.connection;
 
@@ -35,12 +35,12 @@ function getByValue(array, id) {
 
 router.findOneByID = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    recipes.find({ "_id" : req.params.id },function(err, recipe) {
+    recipes.findOne({ "_id" : req.params.id },function(err, recipe) {
         if (err)
-            res.json({ message: 'Recipe NOT Found By ID!!', errorMessage: err});
+            res.json({message: 'Recipe NOT Found By ID!!', errorMessage: err});
         else
-        if (recipe.length == 0)
-            res.send("Recipe NOT Found By ID!!");
+        if (recipe == null)
+            res.send({message: "Recipe NOT Found By ID!!"});
         else
             res.send(JSON.stringify(recipe,null,5));
     });
@@ -58,7 +58,7 @@ router.findOneByName = (req, res) => {
             res.json({ message: 'Recipe NOT Found By Name!!', errorMessage: err});
         else
         if (recipe.length == 0)
-            res.send("Recipe NOT Found By Name!!");
+            res.send({message: "Recipe NOT Found By Name!!"});
         else
             res.send(JSON.stringify(recipe,null,5));
     });
@@ -76,7 +76,7 @@ router.findOneByUserName = (req, res) => {
             res.json({ message: 'Recipe NOT Found By Username!!', errorMessage: err});
         else
         if (recipe.length == 0)
-            res.send("Recipe NOT Found By Username!!");
+            res.send({message: "Recipe NOT Found By Username!!"});
         else
             res.send(JSON.stringify(recipe,null,5));
     });
@@ -97,7 +97,7 @@ router.findComment = (req, res) => {
 }
 
 router.fuzzySearch = (req, res) => {
-
+    res.setHeader('Content-Type', 'application/json');
     const keyword = req.params.name;
     const reg = new RegExp(keyword,'i');
     recipes.find( {name:{$regex:reg}}, function (err, recipe) {
@@ -105,7 +105,7 @@ router.fuzzySearch = (req, res) => {
             res.json({message: 'Search NOT Successfully', errorMessage: err});
         else {
             if (recipe.length == 0)
-                res.send("Bad search!!");
+                res.send({message: "Bad search!!"});
             else
                 res.send(JSON.stringify(recipe,null,5));
         }
@@ -123,9 +123,9 @@ router.addRecipe = (req, res) => {
 
     recipe.save(function (err) {
         if (err)
-            res.json({message: 'User NOT Added!', errorMessage: err});
+            res.json({message: 'Recipe NOT Added!', errorMessage: err});
         else
-            res.json({message: 'User Added Successfully!', data: recipe});
+            res.json({message: 'Recipe Added Successfully!', data: recipe});
     });
 }
 
@@ -219,7 +219,7 @@ router.deleteRecipeComment = (req, res) => {
 
                 let comment = getByValue(recipe.comment, req.params.cid)
                 if (comment == null)
-                    res.send("Comment NOT Found! - Recipe Comment Delete NOT Successful!");
+                    res.send({message: "Comment NOT Found! - Recipe Comment Delete NOT Successful!"});
                 else {
                     let index = recipe.comment.indexOf(comment);
                     recipe.comment.splice(index, 1);
