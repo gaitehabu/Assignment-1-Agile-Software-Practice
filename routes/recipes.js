@@ -76,7 +76,7 @@ router.findOneByUserName = (req, res) => {
             res.json({ message: 'Recipe NOT Found By Username!!', errorMessage: err});
         else
         if (recipe.length == 0)
-            res.send("Recipe NOT Found By Username!!");
+            res.send({message: "Recipe NOT Found By Username!!"});
         else
             res.send(JSON.stringify(recipe,null,5));
     });

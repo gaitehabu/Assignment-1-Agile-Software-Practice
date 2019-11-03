@@ -97,7 +97,7 @@ describe('Recipes: models', function () {
                     .get('/recipes/12333')
                     .expect(200)
                     .end((err, res) => {
-                        expect({message: "Recipe NOT Found By ID!!"});
+                        expect(res.body.message).equals("Recipe NOT Found By ID!!");
                         done(err);
                     })
             });
@@ -138,13 +138,94 @@ describe('Recipes: models', function () {
                     .get('/recipes/name/iceCream')
                     .expect(200)
                     .end((err, res) => {
-                        expect({message: "Recipe NOT Found By name!!"});
+                        expect(res.body.message).equals("Recipe NOT Found By Name!!");
                         done(err);
                     })
             });
         });
     });
 
+    describe('GET /recipes/username/:username', () => {
+        describe('when the username is correct', () => {
+            it('should return the matching recipe', done => {
+                request(server)
+                    .get('/recipes/username/Francis')
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.length).to.equal(2);
+                        let result = _.map(res.body, recipe => {
+                            return {
+                                name: recipe.name,
+                                username: recipe.username
+                            };
+                        });
+                        expect(result).to.deep.include({
+                            name: "Pizza",
+                            username: "Francis"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Noodles",
+                            username: "Francis"
+                        });
+                        done(err);
+                    });
+            });
+        });
+        describe('when the username is wrong', () => {
+            it('should return the NOT Found message', done => {
+                request(server)
+                    .get('/recipes/username/Zoe')
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.message).equals("Recipe NOT Found By Username!!");
+                        done(err);
+                    })
+            });
+        });
+    });
+
+    describe('GET /recipes/:id/comment', () => {
+        describe('when the id is valid', () => {
+            it('should return the matching comment in recipe', done => {
+                request(server)
+                    .get('/recipes/5db4cd6920a9f87338d01bfe/comment')
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.length).to.equal(2);
+                        let result = _.map(res.body, comment => {
+                            return {
+                                username: comment.username,
+                                text: comment.text
+                            };
+                        });
+                        expect(result).to.deep.include({
+                            username: "Meng",
+                            text: "Looks good and tasty."
+                        });
+                        expect(result).to.deep.include({
+                            username: "Qi",
+                            text: "Good!"
+                        });
+                        done(err);
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', done => {
+                request(server)
+                    .get('/recipes/11111/comment')
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.message).equals("Recipe NOT Found By ID!!");
+                        done(err);
+                    })
+            });
+        });
+    });
 
 });
 
