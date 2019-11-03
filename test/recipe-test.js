@@ -1,0 +1,81 @@
+const chai = require("chai");
+const expect = chai.expect;
+const request = require("supertest");
+const _ = require("lodash");
+const mongoose = require("mongoose");
+const Recipe = require('../models/recipes')
+
+const mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/cookingweb?retryWrites=true&w=majority';
+let server;
+let db;
+
+let testID;
+
+describe('Recipes: models', function () {
+    before(async () => {
+        try {
+            mongoose.connect(mongodbUri, { useNewUrlParser: true, useUnifiedTopology: true });
+            server = require("../bin/www");
+            db = mongoose.connection;
+        } catch (e) {
+            console.log(e);
+        }
+    });
+
+    after(async () => {
+        try {
+            await mongoose.connection.close();
+            await server.close()
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+    describe('GET /recipes', () => {
+        it('should return all recipes', done => {
+            request(server)
+                .get('/recipes')
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect(200)
+                .end((err, res) => {
+                    try {
+                        expect(res.body).to.be.a("array");
+                        expect(res.body.length).to.equal(5);
+                        let result = _.map(res.body, recipe => {
+                            return {
+                                name: recipe.name,
+                                username: recipe.username
+                            };
+                        });
+                        expect(result).to.deep.include({
+                            name: "Noodles",
+                            username: "Francis"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Pizza",
+                            username: "Francis"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Curry",
+                            username: "Qi"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Chips",
+                            username: "Meng"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Chips",
+                            username: "Jack"
+                        });
+                        done();
+                    } catch (e) {
+                        done(e);
+                    }
+                });
+        });
+    });
+
+
+});
+

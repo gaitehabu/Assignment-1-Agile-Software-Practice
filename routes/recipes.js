@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 
 
 let mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/cookingweb';
-mongoose.connect(mongodbUri, { useNewUrlParser: true });
+mongoose.connect(mongodbUri, { useNewUrlParser: true , useUnifiedTopology: true });
 
 let db = mongoose.connection;
 
