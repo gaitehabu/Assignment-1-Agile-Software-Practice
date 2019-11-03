@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b408d000-abc9-486b-b4c8-15aae279dec8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/user-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/user-test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,17 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/user-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="201" column="54" selection-start-line="201" selection-start-column="54" selection-end-line="201" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/donationsTest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1758">
-              <caret line="8" column="60" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="60" />
+            <state relative-caret-position="572">
+              <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -84,17 +73,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Desktop/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2520">
-              <caret line="168" column="3" selection-start-line="168" selection-start-column="3" selection-end-line="168" selection-end-column="3" />
+            <state relative-caret-position="2775">
+              <caret line="336" column="2" selection-start-line="336" selection-start-column="2" selection-end-line="336" selection-end-column="2" />
+              <folding>
+                <element signature="e#526#5659#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/www">
+        <entry file="file://$USER_HOME$/Downloads/donationsTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="903">
-              <caret line="90" selection-start-line="90" selection-end-line="90" />
+            <state relative-caret-position="-1035">
+              <caret line="8" column="60" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -129,9 +121,9 @@
         <option value="$PROJECT_DIR$/models/comments.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/recipes.js" />
-        <option value="$USER_HOME$/Desktop/test.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/test/user-test.js" />
+        <option value="$USER_HOME$/Desktop/test.js" />
       </list>
     </option>
   </component>
@@ -1600,9 +1592,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Users__models - 2019.11.03 at 12h 49m 03s.xml">
-      <configuration name="Users: models" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="Users__models - 2019.11.03 at 12h 50m 11s.xml">
       <configuration name="Users: models" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1630,9 +1619,12 @@
     <history-entry file="Users__models - 2019.11.03 at 13h 10m 05s.xml">
       <configuration name="Users: models" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="Users__models - 2019.11.03 at 13h 12m 41s.xml">
+      <configuration name="Users: models" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93145000" />
+    <option name="totallyTimeSpent" value="93698000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1761,13 +1753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="168" column="3" selection-start-line="168" selection-start-column="3" selection-end-line="168" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/recipes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="948">
@@ -1779,13 +1764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="35" selection-start-column="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/donationsTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1758">
-          <caret line="8" column="60" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1803,10 +1781,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/donationsTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1035">
+          <caret line="8" column="60" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2775">
+          <caret line="336" column="2" selection-start-line="336" selection-start-column="2" selection-end-line="336" selection-end-column="2" />
+          <folding>
+            <element signature="e#526#5659#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/user-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="201" column="54" selection-start-line="201" selection-start-column="54" selection-end-line="201" selection-end-column="54" />
+        <state relative-caret-position="572">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
         </state>
       </provider>
     </entry>
