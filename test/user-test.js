@@ -7,9 +7,8 @@ const User = require('../models/users')
 
 
 const mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/cookingweb?retryWrites=true&w=majority';
-let server;
-let db;
 
+let server, db, collection, validID;
 let testID;
 
 describe('Users: models', function () {
@@ -19,6 +18,7 @@ describe('Users: models', function () {
             mongoose.connect(mongodbUri, { useNewUrlParser: true, useUnifiedTopology: true });
             server = require("../bin/www");
             db = mongoose.connection;
+            collection = db.collection("users")
         } catch (e) {
             console.log(e);
         }
@@ -28,6 +28,35 @@ describe('Users: models', function () {
         try {
             await mongoose.connection.close();
             await server.close()
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+    before(async () => {
+        try {
+            await collection.deleteMany({});
+            await collection.insertOne({
+                name: "Meng",
+                password: "changedPassword",
+                sex: "male",
+                personal_lnfo: "Hello"
+            });
+            await collection.insertOne({
+                name: "Arli",
+                password: "fox111",
+                sex: "female",
+                personal_lnfo: "Hello"
+            });
+            await collection.insertOne({
+                name: "Francis",
+                password: "123456789",
+                sex: "male",
+                personal_lnfo: "Hello"
+            });
+
+            let user = await collection.findOne({ name: "Francis" });
+            validID = user._id;
         } catch (error) {
             console.log(error);
         }
@@ -74,7 +103,7 @@ describe('Users: models', function () {
         describe('when the id is valid', () => {
             it('should return the matching user', done => {
                 request(server)
-                    .get('/users/5db596749ab793039c1a5a6f')
+                    .get(`/users/${validID}`)
                     .set("Accept", "application/json")
                     .expect("Content-Type", /json/)
                     .expect(200)
@@ -129,7 +158,9 @@ describe('Users: models', function () {
     describe('POST /user', () => {
         const user = {
             name: 'Zoe',
-            password: 'starstar'
+            password: 'starstar',
+            sex: "male",
+            personal_lnfo: "Hello"
         };
         it('should return confirmation message and add a user', function () {
             return request(server)
@@ -143,7 +174,7 @@ describe('Users: models', function () {
         });
         after(() => {
             return request(server)
-                .get(`/users/name/${user.name}`)
+                .get(`/users/${testID}`)
                 .set("Accept", "application/json")
                 .expect("Content-Type", /json/)
                 .expect(200)
@@ -182,7 +213,7 @@ describe('Users: models', function () {
         describe('when the id is valid', () => {
             it('should return the message and user information changed', function () {
                 const user = {
-                    sex: 'male',
+                    sex: 'female',
                     personal_lnfo: "I like drinking"
                 };
                 return request(server)
@@ -190,7 +221,7 @@ describe('Users: models', function () {
                     .send(user)
                     .expect(200)
                     .then(res => {
-                        expect(res.body.data).to.have.property("sex", "male");
+                        expect(res.body.data).to.have.property("sex", "female");
                         expect(res.body.data).to.have.property("personal_lnfo", "I like drinking");
                     });
             });
@@ -237,5 +268,5 @@ describe('Users: models', function () {
             });
         });
     })
-    
+
 });
