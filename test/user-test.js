@@ -7,40 +7,125 @@ const User = require('../models/users')
 
 
 const mongodbUri = 'mongodb+srv://AtlasAdminister:wojiubugaosuni@cluster0-k2ynh.mongodb.net/cookingweb?retryWrites=true&w=majority';
-let server;
-let db;
 
+let server, db, collection, validID;
 let testID;
-
-mongoose.connect(mongodbUri, { useNewUrlParser: true, useUnifiedTopology: true });
-server = require("../bin/www");
 
 describe('Users: models', function () {
 
-    // before(async () => {
-    //     try {
-    //         mongoose.connect(mongodbUri);
-    //         server = require("../bin/www");
-    //         db = mongoose.connection;
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // });
+    before(async () => {
+        try {
+            mongoose.connect(mongodbUri, { useNewUrlParser: true, useUnifiedTopology: true });
+            server = require("../bin/www");
+            db = mongoose.connection;
+            collection = db.collection("users")
+        } catch (e) {
+            console.log(e);
+        }
+    });
 
-    // beforeEach(async () => {
-    //     try {
-    //         await User.deleteMany({});
-    //         let user = new User();
-    //         user.name = 'Jona';
-    //         user.password = '123456';
-    //         await user.save();
-    //         user.name = 'HuYan';
-    //         user.password = 'qazwsx';
-    //         await user.save();
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // });
+    after(async () => {
+        try {
+            await mongoose.connection.close();
+            await server.close()
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+    before(async () => {
+        try {
+            await collection.deleteMany({});
+            await collection.insertOne({
+                name: "Meng",
+                password: "changedPassword",
+                sex: "male",
+                personal_lnfo: "Hello"
+            });
+            await collection.insertOne({
+                name: "Arli",
+                password: "fox111",
+                sex: "female",
+                personal_lnfo: "Hello"
+            });
+            await collection.insertOne({
+                name: "Francis",
+                password: "123456789",
+                sex: "male",
+                personal_lnfo: "Hello"
+            });
+
+            let user = await collection.findOne({ name: "Francis" });
+            validID = user._id;
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+    describe('GET /users', () => {
+        it('should return all users', done => {
+            request(server)
+                .get('/users')
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect(200)
+                .end((err, res) => {
+                    try {
+                        expect(res.body).to.be.a("array");
+                        expect(res.body.length).to.equal(3);
+                        let result = _.map(res.body, user => {
+                            return {
+                                name: user.name,
+                                password: user.password
+                            };
+                        });
+                        expect(result).to.deep.include({
+                            name: "Meng",
+                            password: "changedPassword"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Arli",
+                            password: "fox111"
+                        });
+                        expect(result).to.deep.include({
+                            name: "Francis",
+                            password: "123456789"
+                        });
+                        done();
+                    } catch (e) {
+                        done(e);
+                    }
+                });
+        });
+    });
+
+    describe('GET /users/:id', () => {
+        describe('when the id is valid', () => {
+            it('should return the matching user', done => {
+                request(server)
+                    .get(`/users/${validID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body).to.have.property("name", "Francis");
+                        expect(res.body).to.have.property("password", "123456789");
+                        done(err);
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', done => {
+                request(server)
+                    .get('/users/1119999')
+                    .expect(200)
+                    .end((err, res) => {
+                        expect({message: "User NOT Found By ID!!"});
+                        done(err);
+                    })
+            });
+        });
+    });
 
     describe('GET /users/name/:name', () => {
         describe('when the name is valid', () => {
@@ -72,8 +157,10 @@ describe('Users: models', function () {
 
     describe('POST /user', () => {
         const user = {
-            name: 'Arli',
-            password: 'fox111'
+            name: 'Zoe',
+            password: 'starstar',
+            sex: "male",
+            personal_lnfo: "Hello"
         };
         it('should return confirmation message and add a user', function () {
             return request(server)
@@ -87,13 +174,13 @@ describe('Users: models', function () {
         });
         after(() => {
             return request(server)
-                .get(`/users/name/${user.name}`)
+                .get(`/users/${testID}`)
                 .set("Accept", "application/json")
                 .expect("Content-Type", /json/)
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.have.property("name", "Arli");
-                    expect(res.body).to.have.property("password", "fox111");
+                    expect(res.body).to.have.property("name", "Zoe");
+                    expect(res.body).to.have.property("password", "starstar");
                 });
         });
     });
@@ -105,7 +192,7 @@ describe('Users: models', function () {
                     password: 'changedPassword'
                 };
                 return request(server)
-                    .put('/users/5db4f87b722f7382f2394ccf/password')
+                    .put(`/users/${testID}/password`)
                     .send(user)
                     .expect(200)
                     .then(res => {
@@ -117,6 +204,32 @@ describe('Users: models', function () {
             it('should return the NOT Found message', function () {
                 return request(server)
                     .put('/users/qqqq/password')
+                    .expect({message: "User NOT Found"});
+            });
+        });
+    });
+
+    describe('PUT /user/:id/editInformation', () => {
+        describe('when the id is valid', () => {
+            it('should return the message and user information changed', function () {
+                const user = {
+                    sex: 'female',
+                    personal_lnfo: "I like drinking"
+                };
+                return request(server)
+                    .put(`/users/${testID}/editInformation`)
+                    .send(user)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.data).to.have.property("sex", "female");
+                        expect(res.body.data).to.have.property("personal_lnfo", "I like drinking");
+                    });
+            });
+        });
+        describe('when the id is invalid', () => {
+            it('should return the NOT Found message', function () {
+                return request(server)
+                    .put('/users/qqqq/editInformation')
                     .expect({message: "User NOT Found"});
             });
         });
@@ -155,15 +268,5 @@ describe('Users: models', function () {
             });
         });
     })
-
-
-    // after(async () => {
-    //     try {
-    //         await db.dropDatabase();
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // });
-
 
 });
