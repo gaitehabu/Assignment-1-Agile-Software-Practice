@@ -389,6 +389,84 @@ describe('Recipes: models', function () {
         });
     })
 
+    describe('POST /recipes/:id/addComment', () => {
+        const comment = {
+            username: "Saruis", text: "bad bad bad!", date: "2016.6.20"
+        };
+        it('should return confirmation message and add a comment in recipe', function () {
+            return request(server)
+                .post('/recipes/5db4cd6920a9f87338d01bfe/addComment')
+                .send(comment)
+                .expect(200)
+                .then(res => {
+                    expect(res.body).to.have.property("message", "Comment Added Successfully!");
+                    testID = res.body.data[res.body.data.length - 1]._id;
+                });
+        });
+        after(() => {
+            return request(server)
+                //.get(`/recipes/${testID}`)
+                .get('/recipes/5db4cd6920a9f87338d01bfe/comment')
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect(200)
+                .then(res => {
+                    expect(res.body.length).to.equal(3);
+                    let result = _.map(res.body, comment => {
+                        return {
+                            username: comment.username,
+                            text: comment.text
+                        };
+                    });
+                    expect(result).to.deep.include({username: "Saruis", text: "bad bad bad!"});
+                });
+        });
+    });
+
+    describe("DELETE /recipes/:id/comment/:cid", () => {
+        describe("when the id is valid", () => {
+            it("should return a message and delete a comment in recipe", () => {
+                return request(server)
+                    .delete(`/recipes/5db4cd6920a9f87338d01bfe/comment/${testID}`)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "Comment Delete Successfully!" });
+                    });
+            });
+            after(() => {
+                return request(server)
+                    .get(`/recipes/5db4cd6920a9f87338d01bfe`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .then(res => {
+                        console.log(res.body)
+                        expect(res.body.comment.length).to.equal(2);
+                        expect(res.body.comment[2]).to.equal(undefined);
+                    });
+            });
+        });
+        describe("when the id is invalid", () => {
+            it("should return a message for Comment NOT DELETED", () => {
+                return request(server)
+                    .delete(`/recipes/5db4cd6920a901bfe/comment/${testID}`)
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "Recipe NOT Found By ID!!" });
+                    });
+
+            });
+        });
+        describe("when the cid is invalid", () => {
+            it("should return a message for Comment NOT DELETED", () => {
+                return request(server)
+                    .delete(`/recipes/5db4cd6920a9f87338d01bfe/comment/1231231231321`)
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "Comment NOT Found! - Recipe Comment Delete NOT Successful!" });
+                    });
+
+            });
+        });
+    })
 
 });
 

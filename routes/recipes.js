@@ -219,7 +219,7 @@ router.deleteRecipeComment = (req, res) => {
 
                 let comment = getByValue(recipe.comment, req.params.cid)
                 if (comment == null)
-                    res.send("Comment NOT Found! - Recipe Comment Delete NOT Successful!");
+                    res.send({message: "Comment NOT Found! - Recipe Comment Delete NOT Successful!"});
                 else {
                     let index = recipe.comment.indexOf(comment);
                     recipe.comment.splice(index, 1);
