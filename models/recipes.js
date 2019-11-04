@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+let mongoose = require("mongoose")
 
 let RecipeSchema = new mongoose.Schema({
     name: String,
@@ -11,10 +11,10 @@ let RecipeSchema = new mongoose.Schema({
         text: String,
         date: Date}],
     like: {type: Number, default: 0}
-    },
-    {collection: 'recipes'});
+},
+{collection: "recipes"})
 
-module.exports = mongoose.model('Recipes', RecipeSchema);
+module.exports = mongoose.model("Recipes", RecipeSchema)
 
 
 
