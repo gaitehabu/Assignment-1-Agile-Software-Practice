@@ -1,0 +1,3 @@
+file:
+    - ./test/user-test.js
+    - ./test/recipe-test.js
