@@ -188,11 +188,11 @@ describe("Users: models", function () {
     })
 
     describe("PUT /user/:id/password", () => {
+        const user = {
+            password: "changedPassword"
+        }
         describe("when the id is valid", () => {
             it("should return the message and user password changed", function () {
-                const user = {
-                    password: "changedPassword"
-                }
                 return request(server)
                     .put(`/users/${testID}/password`)
                     .send(user)
@@ -208,16 +208,25 @@ describe("Users: models", function () {
                     .put("/users/qqqq/password")
                     .expect({message: "User NOT Found"})
             })
+            it("should return a message for user not find", () => {
+                return request(server)
+                    .put(`/users/5dc06234254683147ec50b95/password`)
+                    .send(user)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "User NOT Found!")
+                    })
+            })
         })
     })
 
     describe("PUT /user/:id/editInformation", () => {
+        const user = {
+            sex: "female",
+            personal_lnfo: "I like drinking"
+        }
         describe("when the id is valid", () => {
             it("should return the message and user information changed", function () {
-                const user = {
-                    sex: "female",
-                    personal_lnfo: "I like drinking"
-                }
                 return request(server)
                     .put(`/users/${testID}/editInformation`)
                     .send(user)
@@ -233,6 +242,15 @@ describe("Users: models", function () {
                 return request(server)
                     .put("/users/qqqq/editInformation")
                     .expect({message: "User NOT Found"})
+            })
+            it("should return a message for user not find", () => {
+                return request(server)
+                    .put(`/users/5dc06234254683147ec50b95/editInformation`)
+                    .send(user)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "User NOT Found!!")
+                    })
             })
         })
     })
@@ -266,7 +284,13 @@ describe("Users: models", function () {
                     .then(resp => {
                         expect(resp.body).to.include({ message: "User NOT Deleted!" })
                     })
-
+            })
+            it("should return a message for user not find", () => {
+                return request(server)
+                    .delete(`/users/5dc06234254683147ec50b95`)
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "User NOT Found")
+                    })
             })
         })
     })

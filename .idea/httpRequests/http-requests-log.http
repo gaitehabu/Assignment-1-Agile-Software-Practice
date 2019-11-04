@@ -1,3 +1,199 @@
+GET http://localhost:3000/recipes/name/^$&%*&$*
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:3000/recipes/name/1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034956.200.json
+
+###
+
+GET http://localhost:3000/recipes/123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034755.200.json
+
+###
+
+GET http://localhost:3000/recipes/qqq444444
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034744.200.json
+
+###
+
+GET http://localhost:3000/recipes/qqq
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034735.200.json
+
+###
+
+GET http://localhost:3000/recipes/5dc03527e613c70a6fde044
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034718.200.json
+
+###
+
+GET http://localhost:3000/recipes/5dc03527e613c70a6fde0444
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034714.200.json
+
+###
+
+GET http://localhost:3000/recipes/5dc03527e613c70a6fde0809
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034702.200.json
+
+###
+
+GET http://localhost:3000/recipes/5dc03527e613c70a6fde0804
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034655.200.json
+
+###
+
+GET http://localhost:3000/recipes/5dc03527e613c70a6fde080
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034647.200.json
+
+###
+
+GET http://localhost:3000/recipes/5dc03527e613c70a6fde08001
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034642.200.json
+
+###
+
+GET http://localhost:3000/recipes/5dc03527e613c70a6fde0800
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034638.200.json
+
+###
+
+GET http://localhost:3000/recipes
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034630.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/N#11111111333
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034618.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/N#11111111
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034615.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/N#11111111#
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:3000/recipes/name/N#11111111##
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:3000/recipes/name/N#11111111
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034604.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/N#
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034556.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/N######
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:3000/recipes/name/Nood@@
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034535.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Noodl
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034509.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/Noodles
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034459.200.json
+
+###
+
+GET http://localhost:3000/recipes/name/@#$%
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:3000/resources
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-11-04T034433.404.html
+
+###
+
+GET http://localhost:8080/resources
+Accept: */*
+Cache-Control: no-cache
+
+###
+
 DELETE http://localhost:3000/recipes/5d0a9f87338d01bfe/comment/5db5bcffa13dc710db090a98
 Accept: */*
 Cache-Control: no-cache
@@ -259,292 +455,6 @@ Content-Type: application/json
 {"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
 
 <> 2019-10-27T031858.200.html
-
-###
-
-GET http://localhost:3000/recipes/username/Francissss
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T031840.200.json
-
-###
-
-GET http://localhost:3000/recipes/username/Francis
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T031829.200.json
-
-###
-
-GET http://localhost:3000/recipes/name/Noodles111
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T031816.200.json
-
-###
-
-GET http://localhost:3000/recipes/name/Noodles
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T031805.200.json
-
-###
-
-GET http://localhost:3000/recipes/5db4cd6911
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T031746.200.json
-
-###
-
-GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T031737.200.json
-
-###
-
-GET http://localhost:3000/recipes
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T031712.200.json
-
-###
-
-GET http://localhost:3000/recipes/5db4cd6920a9f87338dfe/comment
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030516.200.json
-
-###
-
-GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe/comment
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030508.200.json
-
-###
-
-GET http://localhost:3000/recipes/name/Nood
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030421.200.json
-
-###
-
-GET http://localhost:3000/recipes/name/Noodles
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030417.200.json
-
-###
-
-GET http://localhost:3000/recipes/name/Meng
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030333.200.json
-
-###
-
-GET http://localhost:3000/recipes/name/Fran
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030328.200.json
-
-###
-
-GET http://localhost:3000/recipes/name/Francis
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030225.200.json
-
-###
-
-GET http://localhost:3000/recipes/5db4cd692d01bfe
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030206.200.json
-
-###
-
-GET http://localhost:3000/recipes/5db4cd6920a9f87338d01bfe
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030201.200.json
-
-###
-
-GET http://localhost:3000/recipes/search/l
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030130.200.html
-
-###
-
-GET http://localhost:3000/recipes/search/i
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030115.200.html
-
-###
-
-GET http://localhost:3000/recipes/search/qqq
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030110.200.html
-
-###
-
-GET http://localhost:3000/recipes/search/qqq
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T030027.200.html
-
-###
-
-GET http://localhost:3000/recipes/search/qqq
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T025811.200.html
-
-###
-
-GET http://localhost:3000/recipes/
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T025626.200.json
-
-###
-
-GET http://localhost:3000/recipes/search/i
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T025608.200.html
-
-###
-
-GET http://localhost:3000/recipes
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T025451.200.json
-
-###
-
-DELETE http://localhost:3000/users/5db5ae58cc9f1d08b4f2d6dc
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T025112.200.json
-
-###
-
-PUT http://localhost:3000/users/5db5108b4f2d6dc/editInformation
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"id": 1000003, "name": "Jack", "password": "222222", "sex": "female", "personal_lnfo": "Hi Hello"}
-
-<> 2019-10-27T025051.200.json
 
 ###
 

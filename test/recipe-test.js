@@ -264,6 +264,15 @@ describe("Recipes: models", function () {
                         done(err)
                     })
             })
+            it("should return the NOT Found message", done => {
+                request(server)
+                    .get("/recipes/5dc06234254683147ec50b95/comment")
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.message).equals("Recipe NOT Found By ID!!")
+                        done(err)
+                    })
+            })
         })
     })
 
@@ -363,6 +372,13 @@ describe("Recipes: models", function () {
                     })
                 //expect({message: "Recipe NOT Found"});
             })
+            it("should return the NOT Found message", function () {
+                return request(server)
+                    .put("/recipes/5dc06234254683147ec50b95/upLike")
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "Recipe NOT Found By ID")
+                    })
+            })
         })
     })
 
@@ -390,6 +406,13 @@ describe("Recipes: models", function () {
                     .put("/recipes/2131231/editRecipes")
                     .then(res => {
                         expect(res.body).to.have.property("message", "Recipe NOT Found")
+                    })
+            })
+            it("should return the NOT Found message", function () {
+                return request(server)
+                    .put("/recipes/5dc06234254683147ec50b95/editRecipes")
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "Recipe NOT Found!")
                     })
             })
         })
@@ -426,6 +449,14 @@ describe("Recipes: models", function () {
                     })
 
             })
+            it("should return a message for Recipe NOT Found", () => {
+                return request(server)
+                    .delete("/recipes/5dc06234254683147ec50b95")
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "Recipe NOT Found" })
+                    })
+
+            })
         })
     })
 
@@ -433,33 +464,55 @@ describe("Recipes: models", function () {
         const comment = {
             username: "Saruis", text: "bad bad bad!", date: "2016.6.20"
         }
-        it("should return confirmation message and add a comment in recipe", function () {
-            return request(server)
-                .post(`/recipes/${validID}/addComment`)
-                .send(comment)
-                .expect(200)
-                .then(res => {
-                    expect(res.body).to.have.property("message", "Comment Added Successfully!")
-                    testID = res.body.data[res.body.data.length - 1]._id
-                })
-        })
-        after(() => {
-            return request(server)
-                //.get(`/recipes/${testID}`)
-                .get(`/recipes/${validID}/comment`)
-                .set("Accept", "application/json")
-                .expect("Content-Type", /json/)
-                .expect(200)
-                .then(res => {
-                    expect(res.body.length).to.equal(3)
-                    let result = _.map(res.body, comment => {
-                        return {
-                            username: comment.username,
-                            text: comment.text
-                        }
+        describe("when the id is valid", () => {
+            it("should return confirmation message and add a comment in recipe", function () {
+                return request(server)
+                    .post(`/recipes/${validID}/addComment`)
+                    .send(comment)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "Comment Added Successfully!")
+                        testID = res.body.data[res.body.data.length - 1]._id
                     })
-                    expect(result).to.deep.include({username: "Saruis", text: "bad bad bad!"})
-                })
+            })
+            after(() => {
+                return request(server)
+                //.get(`/recipes/${testID}`)
+                    .get(`/recipes/${validID}/comment`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body.length).to.equal(3)
+                        let result = _.map(res.body, comment => {
+                            return {
+                                username: comment.username,
+                                text: comment.text
+                            }
+                        })
+                        expect(result).to.deep.include({username: "Saruis", text: "bad bad bad!"})
+                    })
+            })
+        })
+        describe("when the id is invalid", () => {
+            it("should return a message for Recipe not find", () => {
+                return request(server)
+                    .post(`/recipes/123123123/addComment`)
+                    .send(comment)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "Recipe NOT Found By ID!!")
+                    })
+            })
+            it("should return a message for Recipe not find", () => {
+                return request(server)
+                    .post(`/recipes/5dc06234254683147ec50b95/addComment`)
+                    .send(comment)
+                    .expect(200)
+                    .then(res => {
+                        expect(res.body).to.have.property("message", "Recipe NOT Found By ID")
+                    })
+            })
         })
     })
 
@@ -491,6 +544,14 @@ describe("Recipes: models", function () {
                     .delete(`/recipes/5db4cd6920a901bfe/comment/${testID}`)
                     .then(resp => {
                         expect(resp.body).to.include({ message: "Recipe NOT Found By ID!!" })
+                    })
+
+            })
+            it("should return a message for Comment NOT DELETED", () => {
+                return request(server)
+                    .delete(`/recipes/5dc06234254683147ec50b95/comment/${testID}`)
+                    .then(resp => {
+                        expect(resp.body).to.include({ message: "Recipe NOT Found By ID" })
                     })
 
             })

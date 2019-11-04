@@ -30,11 +30,6 @@ router.findAll = (req, res) => {
     })
 }
 
-function getByValue(array, id) {
-    let result  = array.filter(function(obj){return obj.id == id} )
-    return result ? result[0] : null // or undefined
-}
-
 router.findOneByID = (req, res) => {
     res.setHeader("Content-Type", "application/json")
     users.findOne({ "_id" : req.params.id },function(err, user) {
@@ -48,17 +43,9 @@ router.findOneByID = (req, res) => {
     })
 }
 
-function getByName(array, name) {
-    let result  = array.filter(function(obj){return obj.name == name} )
-    return result ? result : null // or undefined
-}
-
 router.findOneByName = (req, res) => {
     res.setHeader("Content-Type", "application/json")
     users.findOne({ "name" : req.params.name },function(err, user) {
-        if (err)
-            res.json({ message: "User NOT Found By Name!!", errorMessage: err})
-        else
         if (user != null)
             res.send(JSON.stringify(user,null,5))
         else
@@ -91,7 +78,7 @@ router.changePassword = (req, res) => {
             res.json({message: "User NOT Found"})
         else {
             if (user == null)
-                res.send("User NOT Found!")
+                res.send({message: "User NOT Found!"})
             else {
                 user.password = req.body.password
                 user.save(function(err) {
@@ -111,7 +98,7 @@ router.editInformation = (req, res) => {
             res.json({message: "User NOT Found"/*errorMessage: err*/})
         else {
             if (user == null)
-                res.send("User NOT Found!!")
+                res.send({message: "User NOT Found!!"})
             else {
                 user.sex = req.body.sex
                 user.personal_lnfo = req.body.personal_lnfo
@@ -133,7 +120,7 @@ router.deleteUser = (req, res) => {
             res.json({message: "User NOT Deleted!", errorMessage: err})
         else
         if (user == null)
-            res.send("User NOT Found")
+            res.send({message: "User NOT Found"})
         else
             res.json({message: "User deleted Successfully!"})
     })

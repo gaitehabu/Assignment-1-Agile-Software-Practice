@@ -47,17 +47,14 @@ router.findOneByID = (req, res) => {
     })
 }
 
-function getByName(array, name) {
-    let result  = array.filter(function(obj){return obj.name == name} )
-    return result ? result : null // or undefined
-}
+// function getByName(array, name) {
+//     let result  = array.filter(function(obj){return obj.name == name} )
+//     return result ? result : null // or undefined
+// }
 
 router.findOneByName = (req, res) => {
     res.setHeader("Content-Type", "application/json")
     recipes.find({ "name" : req.params.name },function(err, recipe) {
-        if (err)
-            res.json({ message: "Recipe NOT Found By Name!!", errorMessage: err})
-        else
         if (recipe.length == 0)
             res.send({message: "Recipe NOT Found By Name!!"})
         else
@@ -65,17 +62,14 @@ router.findOneByName = (req, res) => {
     })
 }
 
-function getByUserName(array, username) {
-    let result  = array.filter(function(obj){return obj.username == username} )
-    return result ? result : null // or undefined
-}
+// function getByUserName(array, username) {
+//     let result  = array.filter(function(obj){return obj.username == username} )
+//     return result ? result : null // or undefined
+// }
 
 router.findOneByUserName = (req, res) => {
     res.setHeader("Content-Type", "application/json")
     recipes.find({ "username" : req.params.username },function(err, recipe) {
-        if (err)
-            res.json({ message: "Recipe NOT Found By Username!!", errorMessage: err})
-        else
         if (recipe.length == 0)
             res.send({message: "Recipe NOT Found By Username!!"})
         else
@@ -90,7 +84,7 @@ router.findComment = (req, res) => {
             res.json({ message: "Recipe NOT Found By ID!!", errorMessage: err})
         else{
             if (recipe.length == 0)
-                res.send("Recipe NOT Found By ID!!")
+                res.send({message: "Recipe NOT Found By ID!!"})
             else
                 res.send(JSON.stringify(recipe[0].comment,null,5))
         }
@@ -137,7 +131,7 @@ router.addComment = (req, res) => {
             res.json({ message: "Recipe NOT Found By ID!!", errorMessage: err})
         else {
             if (recipe == null)
-                res.send("Recipe NOT Found By ID")
+                res.send({message: "Recipe NOT Found By ID"})
             else {
                 recipe.comment.push({username : req.body.username, text : req.body.text, date : Date.now()})
                 recipe.save(function (err) {
@@ -158,7 +152,7 @@ router.incrementUpLike = (req, res) => {
             res.json({message: "Recipe NOT Found", errorMessage: err})
         else {
             if (recipe == null)
-                res.send("Recipe NOT Found By ID")
+                res.send({message: "Recipe NOT Found By ID"})
             else {
                 recipe.like += 1
                 recipe.save(function (err) {
@@ -179,7 +173,7 @@ router.editRecipes = (req, res) => {
             res.json({message: "Recipe NOT Found", errorMessage: err})
         else {
             if (recipe == null)
-                res.send("Recipe NOT Found!")
+                res.send({message: "Recipe NOT Found!"})
             else {
                 recipe.name = req.body.name
                 recipe.content = req.body.content
@@ -200,7 +194,7 @@ router.deleteRecipe = (req, res) => {
             res.json({message: "Recipe NOT Deleted!", errorMessage: err})
         else
         if (user == null)
-            res.send("Recipe NOT Found")
+            res.send({message: "Recipe NOT Found"})
         else
             res.json({message: "Recipe deleted Successfully!"})
     })
@@ -215,7 +209,7 @@ router.deleteRecipeComment = (req, res) => {
             res.json({ message: "Recipe NOT Found By ID!!", errorMessage: err})
         else {
             if (recipe == null)
-                res.send("Recipe NOT Found By ID")
+                res.send({message: "Recipe NOT Found By ID"})
             else {
 
                 let comment = getByValue(recipe.comment, req.params.cid)
